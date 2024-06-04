@@ -1,0 +1,18 @@
+{
+    "id": 1,
+    "living_place_id": 1,
+    "water_supply": [1, 2],
+    "other_water_supply": "otros uministro",
+    "disposal_system": [1, 2],
+    "other_disposal_system": "otro sistema",
+    "residual_water": [1, 2],
+    "other_residual_water": "otro rresidual",
+    "solid_waste": [1, 2],
+    "other_solid_waste": "otro desecho",
+    "hygiene": 1,
+    "food_hygiene": 1,
+    "kitchen_toilet": 1,
+    "handwashing": 1,
+    "hygiene_element": 1,
+    "brushed": 1
+}

@@ -1,0 +1,14 @@
+{
+    "id": 1,
+    "info_general": 3,
+    "family_type": 1,
+    "total_members": 5,
+    "imagen": "",
+    "family_graphic": 2,
+    "apgar": 3,
+    "carer": 1,
+    "zarit": 2,
+    "ecomapa": 1,
+    "observation": "Observaciones de ejemplo.",
+    "number_family": "FAM12345"
+}
