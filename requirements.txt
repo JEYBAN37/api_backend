@@ -31,4 +31,13 @@ tzdata==2024.1
 vine==5.1.0
 wcwidth==0.2.13
 whitenoise==6.6.0
+cffi==1.16.0
+cryptography==42.0.7
+ecdsa==0.19.0
+gunicorn==22.0.0
+pyasn1==0.6.0
+pycparser==2.22
+pycryptodome==3.20.0
+python-jose==3.3.0
+rsa==4.9
 python-dotenv==1.0.0
