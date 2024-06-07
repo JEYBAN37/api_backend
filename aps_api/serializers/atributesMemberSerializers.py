@@ -18,4 +18,10 @@ class CustomSerializers(serializers.ModelSerializer):
 class CustomUpdateSerializers(serializers.ModelSerializer):
     class Meta:
         model = AtributesMember
-        read_only_fields = ['serial_id', 'member']
+        read_only_fields = ['id', 'member']
+
+
+class AtributesAnaliticSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = AtributesMember
+        fields = ['sport','disability','chronic_condition']

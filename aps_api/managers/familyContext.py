@@ -7,7 +7,7 @@ from django.contrib.postgres.fields import ArrayField
 
 class FamilyContext(models.Model):
     id = models.AutoField(primary_key=True)
-    family = models.OneToOneField(Family, on_delete=models.CASCADE)
+    family = models.OneToOneField(Family, on_delete=models.CASCADE,related_name='family_context')
     younger = models.IntegerField(choices=enums.OPTIONS_YN)  # 31
     pregnant = models.IntegerField(choices=enums.OPTIONS_YN)  # 22
     senior = models.IntegerField(choices=enums.OPTIONS_YN)  # 33

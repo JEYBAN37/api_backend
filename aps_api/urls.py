@@ -23,6 +23,7 @@ urlpatterns = [
     path(url[3], infoGeneralView.delete_item, name=name[3]),
     path(url[48], infoGeneralView.counter_families, name=name[3]),
     path(url[56], infoGeneralView.count_stratum, name=name[3]),
+    path(url[74], infoGeneralView.view_items_analitic, name=name[3]),
 
     path(url[4], familyView.add_item, name=name[0]),
     path(url[5], familyView.view_items, name=name[1]),

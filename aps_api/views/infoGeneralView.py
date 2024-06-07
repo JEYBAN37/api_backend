@@ -4,6 +4,8 @@ from django.db.models import Sum
 from django.db.models.functions import TruncDate
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+
+from aps_api.serializers.analiticSerializers import InfoAnaliticSerializer
 from aps_api.serializers.infoGeneralSerializers import (InfoGeneralSerializers, CustomSerializers,
                                                         CustomUpdateSerializers, EstadisticSerializer,
                                                         CustomUpdateSerializer)
@@ -98,3 +100,12 @@ def count_stratum(request):
     except Exception as e:
         # Retornar un error con estado HTTP 500 Internal Server Error
         return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+
+
+@api_view(['GET'])
+def view_items_analitic(request):
+    try:
+        return get_request(request, InfoGeneral, InfoAnaliticSerializer, CustomUpdateSerializer, keys_info_general)
+    except Exception as e:
+        return Response({mss[1]: str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)

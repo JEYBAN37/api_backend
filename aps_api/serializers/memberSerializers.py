@@ -3,6 +3,7 @@ from rest_framework import serializers
 from aps_api.managers.member import Member
 from aps_api.managers.names import Names
 from aps_api.properties.coverters import type_id_mapping, type_id_mapping_reverse, eps_member, role_mapping, sex_mapping
+from aps_api.serializers.atributesMemberSerializers import AtributesAnaliticSerializers
 from aps_api.serializers.contactSerializers import ContactMemberSerializers
 from aps_api.serializers.nameSerializers import NameMemberSerializers
 from aps_api.utils.serializersGeneric import SerializerEnlace
@@ -104,3 +105,12 @@ class MemberFamiliySerializer(SerializerEnlace):
         data = super().to_representation(instance)
         data['role'] = role_mapping.get(data['role'])
         return data
+
+
+class MemberFamilySerializers(serializers.ModelSerializer):
+    contact = ContactMemberSerializers()
+    name_person = NameMemberSerializers()
+    member_atributes = AtributesAnaliticSerializers()
+    class Meta:
+        model = Member
+        fields = ['name_person','contact','sex','etnia','affiliation_regime','role','member_atributes','present_person']

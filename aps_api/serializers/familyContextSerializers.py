@@ -74,3 +74,10 @@ class CustomUpdateSerializers(serializers.ModelSerializer):
     class Meta:
         model = FamilyContext
         read_only_fields = ['id', 'family']
+
+
+
+class FamilyContextAnaliticSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = FamilyContext
+        fields = ['id', 'victim','vulneravility','healthy_habits','antecedent_salud','family_welfare']

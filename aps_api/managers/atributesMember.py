@@ -11,7 +11,7 @@ from ..properties.enums import OPTIONS_GP, OPTIONS_DISABILITY, OPTIONS_HEALTH_SE
 
 class AtributesMember(models.Model):
     id = models.AutoField(primary_key=True)
-    member = models.OneToOneField(Member, on_delete=models.CASCADE)
+    member = models.OneToOneField(Member, on_delete=models.CASCADE,related_name='member_atributes')
     group_demographic = ArrayField(models.IntegerField(choices=OPTIONS_GP))  # 15
     disability = ArrayField(models.IntegerField(choices=OPTIONS_DISABILITY))  # 18
     chronic_condition = models.IntegerField(choices=enums.OPTIONS_YN)  # 19

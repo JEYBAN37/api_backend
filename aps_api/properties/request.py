@@ -19,6 +19,7 @@ keys_info_general = {
     'id': 'id',
     'pollster': 'pollster',
     'id_familia': 'id_familia',
+    'name_branding':'name_branding'
 }
 
 keys_family = {
@@ -147,7 +148,8 @@ url = (
     'user/update/<int:pk>/',
     'user/',
     'user/recovery/',
-    'reset/password/<int:pk>/'
+    'reset/password/<int:pk>/',
+    'info_general/analitic/'
 )
 
 name = (

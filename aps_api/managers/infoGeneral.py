@@ -17,7 +17,7 @@ class InfoGeneral(models.Model):
     municipality = models.CharField(max_length=5, choices=enums.MUNICIPALITY)  # 5
     territory = models.CharField(max_length=3, default='T99')  # 6
     microterritory = models.CharField(max_length=4, default='T99')  # 7
-    name_branding = models.CharField(max_length=200)  # 8
+    name_branding = models.IntegerField(choices = enums.NH,db_index=True)  # 8
     address = models.CharField(max_length=200, null=True, blank=True)  # 9
     longitud = models.DecimalField(max_digits=11, decimal_places=8)  # 10 frontend
     latitud = models.DecimalField(max_digits=10, decimal_places=8)  # 11 frontend

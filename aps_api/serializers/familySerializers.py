@@ -1,14 +1,14 @@
 from rest_framework import serializers
 from aps_api.managers.family import Family
 from aps_api.managers.member import Member
+from aps_api.serializers.familyContextSerializers import FamilyContextAnaliticSerializers
 from aps_api.serializers.infoGeneralSerializers import CustomSerializers, FamilyGeneralSerializers, InfoGeneralSerializers
-from aps_api.serializers.memberSerializers import ResponsableSerializer
+from aps_api.serializers.memberSerializers import ResponsableSerializer, SaveMemberSerializers, MemberFamilySerializers
 from aps_api.serializers.pollsterSerializers import CustomUpdateSerializers
 from aps_api.properties.coverters import family_type_mapping
 
 
 class FamilySerializers(serializers.ModelSerializer):
-
     class Meta:
         model = Family
         fields = '__all__'
@@ -81,3 +81,9 @@ class CustomFamilyMemberSerializers(serializers.ModelSerializer):
         return data
 
 
+class FamilyAnaliticSerializers(serializers.ModelSerializer):
+    in_charge = MemberFamilySerializers(many=True)
+    family_context = FamilyContextAnaliticSerializers()
+    class Meta:
+        model = Family
+        fields = ['id', 'family_type', 'total_members', 'in_charge','family_context']
