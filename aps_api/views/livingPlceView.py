@@ -26,6 +26,7 @@ def view_items(request):
 @api_view(['POST'])
 def update_items(request, pk):
     try:
+        request = 
         return update_request(request, LivingPlace, LivingPlaceSerializers, pk)
     except Exception as e:
         return Response({mss[1]: str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)

@@ -1031,6 +1031,7 @@ OPTIONS_HEALTH_SERVICES = (
     (23, 'Atención para el seguimiento del recién nacido'),
     (24, 'Preparación para la maternidad y la paternidad'),
     (25, 'Educación para la salud'),
+    (26, 'Ninguno')
 )
 OPTIONS_DTPE_INTERVENTIONS = (
     (1, 'Lugar de atención lejano, cerrado o ausencia del profesional de salud'),

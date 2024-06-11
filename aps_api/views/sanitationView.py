@@ -17,6 +17,7 @@ def add_item(request):
 
 @api_view(['GET'])
 def view_items(request):
+    
     try:
         return get_request(request, Sanitation, CustomSerializers, SanitationSerializers, keys_sanation)
     except Exception as e:
