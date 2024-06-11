@@ -1055,6 +1055,7 @@ OPTIONS_BP = (
     (4, 'Tórax y abdomen'),
     (5, 'Extremidades'),
     (6, 'Comportamiento'),
+    (7,'Ninguno')
 )
 
 OPTIONS_ACCESSIBILITY = (
