@@ -307,6 +307,7 @@ OPTIONS_PI = (
     (6, 'Changas'),
     (7, 'Epatitis A'),
     (8, 'Algunas enfermedades hinmunoprevenible'),
+    (9,'Ninguna')
 )
 
 OPTIONS_STR = (
