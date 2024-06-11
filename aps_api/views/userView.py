@@ -5,7 +5,7 @@ from rest_framework.response import Response
 from django.core.mail import send_mail
 from aps_api.managers.pollster import Pollster
 from aps_api.serializers.pollsterSerializers import PollsterSerializers
-from aps_api.serializers.userRegisterSerializers import UserRegisterSerializers, UserUpdateSerialer
+from aps_api.serializers.userRegisterSerializers import UserRegisterSerializers, UserUpdateSerializer
 from rest_framework import status
 from aps_api.properties.request import mss
 from django.middleware.csrf import get_token
@@ -88,6 +88,6 @@ def reset_password(request,pk):
         iv_hex = request.data['iv']
         decrypted_password = decrypt_password(password, secret_key, iv_hex)
         request.data['password'] = decrypted_password
-        return update_request(request, User, UserUpdateSerialer, pk)
+        return update_request(request, User, UserUpdateSerializer, pk)
     except Exception as e:
         return Response({mss[1]: str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)

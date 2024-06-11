@@ -43,11 +43,11 @@ def update_items(request, pk):
 @api_view(['DELETE'])
 def delete_item(request, pk):
     try:
-        attribute_instance = get_object_or_404(AtributesMember, member=pk)
-        attribute_instance.delete()
+        # Intenta obtener AtributesMember, pero si no existe, captura la excepción
+
+        # Procede a eliminar el Member
         return delete_request(Member, pk)
-    except AtributesMember.DoesNotExist:
-        return Response({'error': 'Atributos del miembro no encontrados.'}, status=status.HTTP_404_NOT_FOUND)
+
     except Member.DoesNotExist:
         return Response({'error': 'Miembro no encontrado.'}, status=status.HTTP_404_NOT_FOUND)
     except Exception as e:
