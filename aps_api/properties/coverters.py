@@ -1,3 +1,18 @@
+from aps_api.properties.enums import OPTIONS_FG, OPTIONS_APGAR, OPTIONS_ZT, OPTIONS_ECO, OPTIONS_HT, OPTIONS_SM, \
+    OPTIONS_FM, OPTIONS_RM, OPTIONS_SI, OPTIONS_SS, OPTIONS_DS
+
+family_garph_mapping = dict(OPTIONS_FG)
+family_garph_apgar = dict(OPTIONS_APGAR)
+family_garph_zarit= dict(OPTIONS_ZT)
+family_garph_ecomapa= dict(OPTIONS_ECO)
+type_living_place_map= dict(OPTIONS_HT)
+wall_material_map= dict(OPTIONS_SM)
+floor_material_map= dict(OPTIONS_FM)
+roof_material_map= dict(OPTIONS_RM)
+irrigation_scenarios_map= dict(OPTIONS_SI)
+water_supply_map= dict(OPTIONS_SS)
+disposal_system_map= dict(OPTIONS_DS)
+
 municipality_mapping = {
     '52001': 'Pasto',
     '52019': 'Albán',

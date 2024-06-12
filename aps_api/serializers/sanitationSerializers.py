@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from aps_api.managers.sanitation import Sanitation
+from aps_api.properties.coverters import yn_mapping
 
 
 class SanitationSerializers(serializers.ModelSerializer):
@@ -19,3 +20,9 @@ class CustomUpdateSerializers(serializers.ModelSerializer):
     class Meta:
         model = Sanitation
         read_only_fields = ['serial_id', 'living_place_id']
+
+
+class allSanitationSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = Sanitation
+        fields = '__all__'

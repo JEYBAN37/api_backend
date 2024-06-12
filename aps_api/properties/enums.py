@@ -6,6 +6,8 @@ OPTIONS_RA = (
     (4, 'excepción'),
     (5, 'No afiliado'),
 )
+regimen_mapping = dict(OPTIONS_RA)
+
 #  Tabla Reporte
 OPTIONS_TRO = (
     (1, 'NI'),
@@ -350,6 +352,8 @@ OPTIONS_FG = (
     (2, 'Psicologicos'),
     (3, 'Sociales'),
 )
+
+
 
 OPTIONS_FT = (
     (1, 'Nuclear biparental'),
@@ -1055,7 +1059,6 @@ OPTIONS_BP = (
     (4, 'Tórax y abdomen'),
     (5, 'Extremidades'),
     (6, 'Comportamiento'),
-    (7,'Ninguno')
 )
 
 OPTIONS_ACCESSIBILITY = (

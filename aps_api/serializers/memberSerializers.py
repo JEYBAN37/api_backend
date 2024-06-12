@@ -98,9 +98,10 @@ class SaveMemberSerializers(serializers.ModelSerializer):
 class MemberFamiliySerializer(SerializerEnlace):
     contact = ContactMemberSerializers()
     name_person = NameMemberSerializers()
+    member_atributes = AtributesAnaliticSerializers()
     class Meta:
         model = Member
-        fields = ['id', 'name_person', 'contact', 'role', 'date_birth']
+        fields = ['id', 'name_person', 'contact', 'role', 'date_birth','member_atributes']
     def to_representation(self, instance):
         data = super().to_representation(instance)
         data['role'] = role_mapping.get(data['role'])

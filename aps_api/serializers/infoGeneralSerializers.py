@@ -3,8 +3,8 @@ from aps_api.managers.infoGeneral import InfoGeneral
 from aps_api.serializers.livingPlaceSerializers import AllLivingSerializers
 
 from aps_api.serializers.pollsterSerializers import CustomUpdateSerializers
-from aps_api.properties.coverters import estratum_mapping, departaments_mapping, municipality_mapping, dict_options_ese
-
+from aps_api.properties.coverters import estratum_mapping, departaments_mapping, municipality_mapping, dict_options_ese, \
+    yn_mapping
 
 
 class InfoGeneralSerializers(serializers.ModelSerializer):
@@ -68,3 +68,11 @@ class AllInfoGeneralSerializers(serializers.ModelSerializer):
     class Meta:
         model = InfoGeneral
         fields = '__all__'
+
+    def to_representation(self, instance):
+        data = super().to_representation(instance)
+        data['departament'] = departaments_mapping.get(data['departament'])
+        data['municipality'] = municipality_mapping.get(data['municipality'])
+        data['estratum'] = estratum_mapping.get(data['estratum'])
+        data['consent'] = yn_mapping.get(data['consent'])
+        return data
