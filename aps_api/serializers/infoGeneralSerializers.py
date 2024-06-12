@@ -1,7 +1,10 @@
 from rest_framework import serializers
 from aps_api.managers.infoGeneral import InfoGeneral
+from aps_api.serializers.livingPlaceSerializers import AllLivingSerializers
+
 from aps_api.serializers.pollsterSerializers import CustomUpdateSerializers
 from aps_api.properties.coverters import estratum_mapping, departaments_mapping, municipality_mapping, dict_options_ese
+
 
 
 class InfoGeneralSerializers(serializers.ModelSerializer):
@@ -60,3 +63,8 @@ class FamilyGeneralSerializers(serializers.ModelSerializer):
 
         return data
 
+class AllInfoGeneralSerializers(serializers.ModelSerializer):
+    living_place = AllLivingSerializers()
+    class Meta:
+        model = InfoGeneral
+        fields = '__all__'

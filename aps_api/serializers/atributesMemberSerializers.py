@@ -24,4 +24,4 @@ class CustomUpdateSerializers(serializers.ModelSerializer):
 class AtributesAnaliticSerializers(serializers.ModelSerializer):
     class Meta:
         model = AtributesMember
-        fields = ['sport','disability','chronic_condition']
+        fields = ['sport','disability','chronic_condition','canalization']

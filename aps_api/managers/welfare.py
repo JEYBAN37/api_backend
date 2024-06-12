@@ -5,7 +5,7 @@ from .family import Family
 
 class Welfare(models.Model):
     id = models.AutoField(primary_key=True)
-    family = models.OneToOneField(Family, on_delete=models.CASCADE)
+    family = models.OneToOneField(Family, on_delete=models.CASCADE,related_name='welfare')
     tenure = models.IntegerField(choices=enums.OPTIONS_T)
     time_residence = models.CharField(max_length=250)
     permanence = models.IntegerField(choices=enums.OPTIONS_TR)

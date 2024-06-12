@@ -14,6 +14,7 @@ from aps_api.utils.querys import get_request, post_request, update_request, dele
 from aps_api.properties.request import mss, keys_family
 from django_filters.rest_framework import DjangoFilterBackend
 import django_filters
+from aps_api.serializers.allDataSerializers import FamilyAllSerializers
 
 
 @api_view(['POST'])
@@ -104,7 +105,7 @@ def count_family(request):
 def get_family_by_id(request, pk):
     try:
         family = Family.objects.get(pk=pk)
-        serializer = CustomUpdateSerializers(family)
+        serializer = FamilyAllSerializers(family)
         return Response(serializer.data, status=status.HTTP_200_OK)
     except Family.DoesNotExist:
         return Response({"detail": "Family not found."}, status=status.HTTP_404_NOT_FOUND)

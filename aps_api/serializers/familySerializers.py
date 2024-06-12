@@ -56,8 +56,6 @@ class CustomSerializers(serializers.ModelSerializer):
         return data
 
 
-
-
 class CustomUpdateSerializers(serializers.ModelSerializer):
     info_general = FamilyGeneralSerializers()
     class Meta:

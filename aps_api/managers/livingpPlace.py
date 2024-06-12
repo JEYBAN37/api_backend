@@ -8,7 +8,7 @@ from aps_api.utils.validationFields import letters_validator, numbers_validator
 
 class LivingPlace(models.Model):
     id = models.AutoField(primary_key=True)
-    info_general = models.OneToOneField(InfoGeneral, on_delete=models.CASCADE)
+    info_general = models.OneToOneField(InfoGeneral, on_delete=models.CASCADE,related_name='living_place')
     type_living_place = models.IntegerField(enums.OPTIONS_HT)  # 54
     description = models.CharField(max_length=30, null=True, blank=True, validators=[letters_validator])  # 55
     wall_material = models.IntegerField(enums.OPTIONS_SM)  # 56

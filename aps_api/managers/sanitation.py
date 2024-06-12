@@ -7,7 +7,7 @@ from django.contrib.postgres.fields import ArrayField
 
 class Sanitation(models.Model):
     id = models.AutoField(primary_key=True)
-    living_place_id = models.OneToOneField(LivingPlace, on_delete=models.CASCADE)
+    living_place_id = models.OneToOneField(LivingPlace, on_delete=models.CASCADE,related_name='sanation')
     water_supply = ArrayField(models.IntegerField(choices=enums.OPTIONS_SS, null=True, blank=True,))  # 75
     other_water_supply = models.CharField(max_length=30, null=True, blank=True, validators=[letters_validator])  # 76
     disposal_system = ArrayField(models.IntegerField(choices=enums.OPTIONS_DS))  # 77
