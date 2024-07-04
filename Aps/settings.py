@@ -99,7 +99,7 @@ DATABASES = {
 }
 
 CORS_ALLOWED_ORIGINS = [
-    'https://aps-demo-deploy.vercel.app'
+    'https://aps-demo-deploy-p978u3b2d-jeyban37s-projects.vercel.app'
 ]
 
 # Password validation
