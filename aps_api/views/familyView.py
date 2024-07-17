@@ -85,7 +85,7 @@ class FamilyListView(generics.ListAPIView):
     def get_queryset(self):
         queryset = super().get_queryset()
         end_date = date.today()
-        start_date = end_date - datetime.timedelta(days=100)
+        start_date = end_date - datetime.timedelta(days=7)
         return queryset.filter(info_general__creation_date__range=[start_date, end_date]).order_by(
             '-info_general__creation_date')
 
