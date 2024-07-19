@@ -5,3 +5,4 @@ models
 resource
 aps_api\migrations
 __pycache__
+Aps\settings.py

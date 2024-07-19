@@ -11,7 +11,7 @@ from aps_api.properties.request import mss
 from django.middleware.csrf import get_token
 from aps_api.utils.psscript import decrypt_password
 from aps_api.utils.querys import post_request, update_request, get_request
-
+import random
 
 @api_view(['POST'])
 def register(request):
@@ -59,16 +59,18 @@ def view_items(request):
 
 @api_view(['POST'])
 def recovery_item(request):
+    KeysRamdom = ("JE22","J205","J2205","J5")
     try:
         item = request.data
         request = Pollster.objects.get(name_person__id_document = item['id_document'])
         if request:
-            if item['code'] == 'JE2205':
+            if item['code'] in KeysRamdom:
                 serializer_instance = PollsterSerializers(request)
                 return Response(serializer_instance.data,status=status.HTTP_200_OK)
             else:
+                aleatory = random.randint(0, 1)
                 subject = 'Actualización de Estado de Usuario'
-                message = f'Hola, tu codigo de recuperacion de cuenta {'JE2205'}.'
+                message = f'Hola, tu codigo de recuperacion de cuenta {KeysRamdom.index(aleatory)}.'
                 email_from = 'jeyban37@gmail.com'
                 recipient_list = [item['email']]
                 print(recipient_list)
