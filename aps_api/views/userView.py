@@ -4,14 +4,19 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from django.core.mail import send_mail
 from aps_api.managers.pollster import Pollster
+
+
 from aps_api.serializers.pollsterSerializers import PollsterSerializers
 from aps_api.serializers.userRegisterSerializers import UserRegisterSerializers, UserUpdateSerializer
 from rest_framework import status
 from aps_api.properties.request import mss
 from django.middleware.csrf import get_token
+
+from aps_api.signals.method_generator import KeysRamdom
 from aps_api.utils.psscript import decrypt_password
 from aps_api.utils.querys import post_request, update_request, get_request
 import random
+
 
 @api_view(['POST'])
 def register(request):
@@ -52,38 +57,37 @@ def update_items(request, pk):
 @api_view(['GET'])
 def view_items(request):
     try:
-        return get_request(request, User, UserRegisterSerializers, UserRegisterSerializers,{'id'})
+        return get_request(request, User, UserRegisterSerializers, UserRegisterSerializers, {'id'})
     except Exception as e:
         return Response({mss[1]: str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
 @api_view(['POST'])
 def recovery_item(request):
-    KeysRamdom = ("JE22","J205","J2205","J5")
     try:
         item = request.data
-        request = Pollster.objects.get(name_person__id_document = item['id_document'])
+        request = Pollster.objects.get(name_person__id_document=item['id_document'])
         if request:
             if item['code'] in KeysRamdom:
                 serializer_instance = PollsterSerializers(request)
-                return Response(serializer_instance.data,status=status.HTTP_200_OK)
-            else:
-                aleatory = random.randint(0, 1)
+                return Response(serializer_instance.data, status=status.HTTP_200_OK)
+            elif item['code'] == "":
+                aleatory = random.randint(0, 3)
                 subject = 'Actualización de Estado de Usuario'
-                message = f'Hola, tu codigo de recuperacion de cuenta {KeysRamdom.index(aleatory)}.'
+                message = f'Hola, tu código de recuperación de cuenta <strong>{KeysRamdom[aleatory]}</strong>.'
                 email_from = 'jeyban37@gmail.com'
                 recipient_list = [item['email']]
                 print(recipient_list)
-                send_mail(subject, message, email_from, recipient_list)
+                send_mail(subject, " ", email_from, recipient_list, html_message=message)
                 return Response(status=status.HTTP_202_ACCEPTED)
+            else:
+                return Response(status=status.HTTP_400_BAD_REQUEST)
     except Exception as e:
         return Response({mss[1]: str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
-
-
 @api_view(['POST'])
-def reset_password(request,pk):
+def reset_password(request, pk):
     try:
         secret_key = '2031c44d3fccc96938b308a8a66dad4b'
         password = request.data['password']

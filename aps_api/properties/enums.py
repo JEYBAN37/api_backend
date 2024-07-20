@@ -8,6 +8,7 @@ OPTIONS_RA = (
 )
 regimen_mapping = dict(OPTIONS_RA)
 
+
 #  Tabla Reporte
 OPTIONS_TRO = (
     (1, 'NI'),

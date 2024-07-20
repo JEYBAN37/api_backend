@@ -90,7 +90,7 @@ DATABASES = {
 }
 
 CORS_ALLOWED_ORIGINS = [
-    'https://r0wm6ss0-5173.use.devtunnels.ms',
+    'http://localhost:5173',
 
 ]
 

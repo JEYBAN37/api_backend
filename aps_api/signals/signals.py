@@ -1,4 +1,3 @@
-
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from aps_api.managers.member import Member
@@ -16,4 +15,3 @@ def generar_reporte(sender, instance, created, **kwargs):
             reporte.type_entidad = 1
             reporte.id_entidad = '154'
             reporte.save()
-
